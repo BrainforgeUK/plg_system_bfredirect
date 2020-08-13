@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.5" type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_BFREDIRECT</name>
+    <version>1.0.0</version>
+    <creationDate>August 2020</creationDate>
+    <author>Jonathan Brain</author>
+    <authorEmail>brainforge@btinternet.com</authorEmail>
+    <authorUrl>http://www.brainforge.co.uk</authorUrl>
+    <copyright>(C) 2020 Jonathan Brain. All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <description>PLG_SYSTEM_BFREDIRECT_XML_DESCRIPTION</description>
+
+    <files>
+        <filename plugin="bfredirect">bfredirect.php</filename>
+        <folder>language</folder>
+    </files>
+
+    <scriptfile>script.php</scriptfile>
+
+    <config>
+        <fields
+				name="params"
+		>
+            <fieldset
+					name="basic"
+			>
+                <field
+                        name="name"
+                        type="text"
+                        label="PLG_SYSTEM_BFREDIRECT_NAME_LABEL"
+                        description="PLG_SYSTEM_BFREDIRECT_NAME_DESC"
+                        default="plg_system_bfredirect"
+                        required="true"
+                />
+
+                <field
+                        name="redirect"
+                        type="subform"
+                        label="PLG_SYSTEM_BFREDIRECT_REDIRECT_LABEL"
+                        description="PLG_SYSTEM_BFREDIRECT_REDIRECT_DESC"
+                        multiple="true"
+                        min="0"
+                >
+                    <form>
+                        <field
+                                name="label"
+                                type="text"
+                                label="PLG_SYSTEM_BFREDIRECT_LABEL_LABEL"
+                                description="PLG_SYSTEM_BFREDIRECT_LABEL_DESC"
+                                hint="label"
+                                required="true"
+                        />
+
+                        <field
+                                name="target"
+                                type="text"
+                                label="PLG_SYSTEM_BFREDIRECT_TARGET_LABEL"
+                                description="PLG_SYSTEM_BFREDIRECT_TARGET_DESC"
+                                hint="PLG_SYSTEM_BFREDIRECT_TARGET_HINT"
+                                required="true"
+                        />
+
+                        <field
+                                name="messagetype"
+                                type="list"
+                                label="PLG_SYSTEM_BFREDIRECT_MESSAGETYPE_LABEL"
+                                description="PLG_SYSTEM_BFREDIRECT_MESSAGETYPE_DESC"
+                        >
+                            <option value="">JOFF</option>
+                            <option value="message">MESSAGE</option>
+                            <option value="notice">NOTICE</option>
+                            <option value="warning">WARNING</option>
+                            <option value="error">ERROR</option>
+                        </field>
+
+                        <field
+                                name="message"
+                                type="textarea"
+                                label="PLG_SYSTEM_BFREDIRECT_MESSAGE_LABEL"
+                                description="PLG_SYSTEM_BFREDIRECT_MESSAGE_DESC"
+                                hint="PLG_SYSTEM_BFREDIRECT_MESSAGE_HINT"
+                                showon="messagetype!:"
+                        />
+
+                        <field
+                                name="state"
+                                type="radio"
+                                label="JSTATUS"
+                                description="JFIELD_PUBLISHED_DESC"
+                                class="btn-group"
+                                filter="intval"
+                                size="1"
+                                default="0"
+                        >
+                            <option value="0">JUNPUBLISHED</option>
+                            <option value="1">JPUBLISHED</option>
+                        </field>
+                    </form>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+
+    <updateservers>
+        <server type="extension" priority="1" name="PLG_SYSTEM_BFREDIRECT">
+            https://brainforge.co.uk/component/bfupdater?element=plg_utilitybrain_bfredirect.xml
+        </server>
+    </updateservers>
+</extension>
