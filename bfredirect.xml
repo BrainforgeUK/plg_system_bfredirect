@@ -38,63 +38,73 @@
                         type="subform"
                         label="PLG_SYSTEM_BFREDIRECT_REDIRECT_LABEL"
                         description="PLG_SYSTEM_BFREDIRECT_REDIRECT_DESC"
+                        layout="joomla.form.field.subform.repeatable-table"
+                        groupByFieldset="true"
                         multiple="true"
                         min="0"
                 >
                     <form>
-                        <field
-                                name="label"
-                                type="text"
-                                label="PLG_SYSTEM_BFREDIRECT_LABEL_LABEL"
-                                description="PLG_SYSTEM_BFREDIRECT_LABEL_DESC"
-                                hint="label"
-                                required="true"
-                        />
-
-                        <field
-                                name="target"
-                                type="text"
-                                label="PLG_SYSTEM_BFREDIRECT_TARGET_LABEL"
-                                description="PLG_SYSTEM_BFREDIRECT_TARGET_DESC"
-                                hint="PLG_SYSTEM_BFREDIRECT_TARGET_HINT"
-                                required="true"
-                        />
-
-                        <field
-                                name="messagetype"
-                                type="list"
-                                label="PLG_SYSTEM_BFREDIRECT_MESSAGETYPE_LABEL"
-                                description="PLG_SYSTEM_BFREDIRECT_MESSAGETYPE_DESC"
+                        <fieldset
+                                name="col1"
                         >
-                            <option value="">JOFF</option>
-                            <option value="message">MESSAGE</option>
-                            <option value="notice">NOTICE</option>
-                            <option value="warning">WARNING</option>
-                            <option value="error">ERROR</option>
-                        </field>
+                            <field
+                                    name="label"
+                                    type="text"
+                                    label="PLG_SYSTEM_BFREDIRECT_LABEL_LABEL"
+                                    description="PLG_SYSTEM_BFREDIRECT_LABEL_DESC"
+                                    hint="label"
+                                    required="true"
+                            />
 
-                        <field
-                                name="message"
-                                type="textarea"
-                                label="PLG_SYSTEM_BFREDIRECT_MESSAGE_LABEL"
-                                description="PLG_SYSTEM_BFREDIRECT_MESSAGE_DESC"
-                                hint="PLG_SYSTEM_BFREDIRECT_MESSAGE_HINT"
-                                showon="messagetype!:"
-                        />
+                            <field
+                                    name="target"
+                                    type="text"
+                                    label="PLG_SYSTEM_BFREDIRECT_TARGET_LABEL"
+                                    description="PLG_SYSTEM_BFREDIRECT_TARGET_DESC"
+                                    hint="PLG_SYSTEM_BFREDIRECT_TARGET_HINT"
+                                    required="true"
+                            />
 
-                        <field
-                                name="state"
-                                type="radio"
-                                label="JSTATUS"
-                                description="JFIELD_PUBLISHED_DESC"
-                                class="btn-group"
-                                filter="intval"
-                                size="1"
-                                default="0"
+                            <field
+                                    name="state"
+                                    type="radio"
+                                    label="JSTATUS"
+                                    description="JFIELD_PUBLISHED_DESC"
+                                    class="btn-group"
+                                    filter="intval"
+                                    size="1"
+                                    default="0"
+                            >
+                                <option value="0">JUNPUBLISHED</option>
+                                <option value="1">JPUBLISHED</option>
+                            </field>
+                        </fieldset>
+
+                        <fieldset
+                                name="col2"
                         >
-                            <option value="0">JUNPUBLISHED</option>
-                            <option value="1">JPUBLISHED</option>
-                        </field>
+                            <field
+                                    name="messagetype"
+                                    type="list"
+                                    label="PLG_SYSTEM_BFREDIRECT_MESSAGETYPE_LABEL"
+                                    description="PLG_SYSTEM_BFREDIRECT_MESSAGETYPE_DESC"
+                            >
+                                <option value="">JOFF</option>
+                                <option value="message">MESSAGE</option>
+                                <option value="notice">NOTICE</option>
+                                <option value="warning">WARNING</option>
+                                <option value="error">ERROR</option>
+                            </field>
+
+                            <field
+                                    name="message"
+                                    type="textarea"
+                                    label="PLG_SYSTEM_BFREDIRECT_MESSAGE_LABEL"
+                                    description="PLG_SYSTEM_BFREDIRECT_MESSAGE_DESC"
+                                    hint="PLG_SYSTEM_BFREDIRECT_MESSAGE_HINT"
+                                    showon="messagetype!:"
+                            />
+                        </fieldset>
                     </form>
                 </field>
             </fieldset>
