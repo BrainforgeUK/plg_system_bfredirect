@@ -113,7 +113,7 @@
 
     <updateservers>
         <server type="extension" priority="1" name="PLG_SYSTEM_BFREDIRECT">
-            https://brainforge.co.uk/component/bfupdater?element=plg_utilitybrain_bfredirect.xml
+            https://brainforge.co.uk/component/bfupdater?element=plg_system_bfredirect.xml
         </server>
     </updateservers>
 </extension>
